@@ -87,7 +87,7 @@ function reset(layer) {
       default:
         break
   }
-}
+} 
 
 function getPrestige(layer) {
   if (!canPrestige(layer)) return EN(0)
@@ -96,7 +96,7 @@ function getPrestige(layer) {
       if ((inGalChal(2) && game.spaceless) || (inGalChal(5) && game.spaceless) || (inGalChal(3))) return EN(0)
       if (game.spaceless) return game.spacetime.pow(1/6).div(10).times(1+game.achievement.includes(47)).floor()
 
-      return game.spacetime.pow(EN(game.SEU.includes(5)?1/299999:1/300000).add(game.galaxies[2].div(100))).div(10)
+      return game.spacetime.pow(EN(game.SEU.includes(5)?1/5:1/6).add(game.galaxies[2].div(100))).div(10)
         .times(stinc(34)?Math.min(Math.max(game.spaceTimeFoamUpgrade.length-9,1),9):1)
         .times(game.spaceComp.gte(13)&&stinc(15)?game.spaceComp.minus(12).pow(stinc(18)?getSpacetimeCompEffect():1):1)
         .times(game.achievement.includes(26)?getNucleoLength().add(1):1)
@@ -114,7 +114,7 @@ function getPrestige(layer) {
 const canPrestige = function(layer) {
   switch (layer) {
     case 1:
-      return game.spacetime.gte('1e300000')
+      return game.spacetime.gte(1e6)
     case 2:
       let starLevel = game.starTypes
       if (inAnyGalChal()) starLevel = game.galaxies[game.galChal-1]
