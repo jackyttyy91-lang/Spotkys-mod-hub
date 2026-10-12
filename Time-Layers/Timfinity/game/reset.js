@@ -114,7 +114,7 @@ function getPrestige(layer) {
 const canPrestige = function(layer) {
   switch (layer) {
     case 1:
-      return game.spacetime.gte(1)
+      return game.spacetime.gte(1e6)
     case 2:
       let starLevel = game.starTypes
       if (inAnyGalChal()) starLevel = game.galaxies[game.galChal-1]
